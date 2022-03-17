@@ -8,6 +8,7 @@ include("./DocumenterCI.jl")
 """
 ```julia
 getPackageTemplate(; authorList=["xKDR"], packagePath="~/")
+```
 
 Return a `Template` object which will be used to create package templates.
 
@@ -17,7 +18,6 @@ Return a `Template` object which will be used to create package templates.
 
 # Return value 
 - An object of type `PkgTemplates.Template`.
-```
 
 # Example 
 ```julia
