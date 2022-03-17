@@ -5,4 +5,4 @@
 ![Build Status](https://github.com/xKDR/{{PKG}}.jl/actions/workflows/documentation.yml/badge.svg)
 # To install:
 
-    add "git://github.com/xKDR/{{PKG}}.jl.git"
+    add "https://github.com/xKDR/{{PKG}}.jl.git"
