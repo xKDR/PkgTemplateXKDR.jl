@@ -5,6 +5,27 @@ export getPackageTemplate
 using PkgTemplates
 include("./DocumenterCI.jl")
 
+"""
+```julia
+getPackageTemplate(; authorList=["xKDR"], packagePath="~/")
+
+Return a `Template` object which will be used to create package templates.
+
+# Arguments 
+- `authorList::Vector{String}`: A list of authors of the package. 
+- `packagePath::String`: Path where the package template is intended to be set up.
+
+# Return value 
+- An object of type `PkgTemplates.Template`.
+```
+
+# Example 
+```julia
+using PkgTemplateXKDR
+template = getPackageTemplate(authorList=["author1", "author2"], packagePath="./")
+template("MyPackage.jl")   # sets up the package in the current working directory
+```
+"""
 function getPackageTemplate(; authorList::Vector{String}=["xKDR"], packagePath::String="~/")
     assets_path_len = length(pathof(PkgTemplateXKDR))
     assets_path = pathof(PkgTemplateXKDR)[1:(assets_path_len - length("PkgTemplateXKDR.jl"))]
