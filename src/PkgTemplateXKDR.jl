@@ -10,14 +10,14 @@ include("./DocumenterCI.jl")
 getPackageTemplate(; authorList=["xKDR"], packagePath="~/")
 ```
 
-Return a `Template` object which will be used to create package templates.
+Return a [`Template`](https://invenia.github.io/PkgTemplates.jl/stable/user/#Template-1) object which will be used to create package templates.
 
 # Arguments 
 - `authorList::Vector{String}`: A list of authors of the package. 
 - `packagePath::String`: Path where the package template is intended to be set up.
 
 # Return value 
-- An object of type `PkgTemplates.Template`.
+- An object of type [`PkgTemplates.Template`](https://invenia.github.io/PkgTemplates.jl/stable/user/#Template-1).
 
 # Example 
 ```julia

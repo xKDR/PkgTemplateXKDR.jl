@@ -32,6 +32,8 @@ Suppose your package is called `XYZ.jl`. Here are the steps you should follow to
 
 These steps will set up a Git repository at `packagePath/XYZ`, from where you can then push the code upstream.
 
+**Note:** By default, the tests in the `test` folder will have their own dependencies in `test/Project.toml`. [If a version of Julia less than 1.2 is used, these dependencies must be added in the main `Project.toml`](https://pkgdocs.julialang.org/v1/creating-packages/#Test-specific-dependencies-in-Julia-1.0-and-1.1).
+
 # Generating secret keys
 
 To set up building documentation using [Documenter.jl](https://juliadocs.github.io/Documenter.jl/stable/), you will also need to generate keys and put it in your repository. Follow these steps (again, we assume that the name of your package is `XYZ.jl`). 
@@ -49,7 +51,12 @@ To set up building documentation using [Documenter.jl](https://juliadocs.github.
 
 4. Add a secure variable named `DOCUMENTER_KEY` at https://github.com/xKDR/XYZ.jl/settings/secrets. Set the value of `DOCUMENTER_KEY` to the generated private key. **Make sure not to set it to be printed in the build log**.
 
-After this, the document will be built in the `gh-pages` branch of your repository. You can configure [Documenter.jl](https://juliadocs.github.io/Documenter.jl/stable/) to further manage your documentation builds. 
+5. Finally, add the secrets keys to the workflow in `.github/workflows/documentation.yml`.
+
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+
+After this, any commit or pull request to the `main` branch will build the fresh documentation in the `gh-pages` branch of your repository. You can configure [Documenter.jl](https://juliadocs.github.io/Documenter.jl/stable/) to further manage your documentation builds. 
 
 ```@autodocs
 Modules = [PkgTemplateXKDR]
