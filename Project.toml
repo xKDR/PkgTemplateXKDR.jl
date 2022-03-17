@@ -1,0 +1,7 @@
+name = "PkgTemplateXKDR"
+uuid = "1db85fae-a281-4a81-a703-9f9ee6e4abbb"
+authors = ["Siddhant Chaudhary", "xKDR Forum"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
