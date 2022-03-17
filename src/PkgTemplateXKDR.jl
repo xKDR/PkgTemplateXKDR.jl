@@ -6,6 +6,9 @@ using PkgTemplates
 include("./DocumenterCI.jl")
 
 function getPackageTemplate(; authorList::Vector{String}=["xKDR"], packagePath::String="~/")
+    assets_path_len = length(pathof(PkgTemplateXKDR))
+    assets_path = pathof(PkgTemplateXKDR)[1:(assets_path_len - length("PkgTemplateXKDR.jl"))]
+
     return Template(;
         user="xKDR",
         authors=authorList,
@@ -33,11 +36,11 @@ function getPackageTemplate(; authorList::Vector{String}=["xKDR"], packagePath::
                 ssh=true,
             ),
             Readme(;
-                file="./readme/README.md",
+                file=joinpath(assets_path, "readme", "README.md"),
                 destination="README.md"
             ),
             GitHubActions(;                         # For adding CI
-                file="./ci/ci.yml",
+                file=joinpath(assets_path, "ci", "ci.yml"),
                 destination="ci.yml",
                 linux=false,
                 x64=false,
@@ -45,12 +48,12 @@ function getPackageTemplate(; authorList::Vector{String}=["xKDR"], packagePath::
                 extra_versions=[]
             ),
             Documenter{GitHubActions}(;             # For adding Documentation
-                make_jl="./docs/make.jl",
-                index_md="./docs/src/index.md",
+                make_jl=joinpath(assets_path, "docs", "make.jl"),
+                index_md=joinpath(assets_path, "docs", "src", "index.md"),
                 assets=String[]
             ),
             DocumenterCI(;
-                documentation_yml="./ci/documentation.yml"
+                documentation_yml=joinpath(assets_path, "ci", "documentation.yml")
             )
         ]
     )
