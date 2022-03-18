@@ -51,11 +51,6 @@ To set up building documentation using [Documenter.jl](https://juliadocs.github.
 
 4. Add a secure variable named `DOCUMENTER_KEY` at https://github.com/xKDR/XYZ.jl/settings/secrets. Set the value of `DOCUMENTER_KEY` to the generated private key. **Make sure not to set it to be printed in the build log**.
 
-5. Finally, add the secrets keys to the workflow in `.github/workflows/documentation.yml`.
-
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-
 After this, any commit or pull request to the `main` branch will build the fresh documentation in the `gh-pages` branch of your repository. You can configure [Documenter.jl](https://juliadocs.github.io/Documenter.jl/stable/) to further manage your documentation builds. 
 
 ```@autodocs

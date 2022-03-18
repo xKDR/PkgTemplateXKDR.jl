@@ -13,4 +13,8 @@ DocumenterCI(; documentation_yml::AbstractString = "") = DocumenterCI(documentat
 PkgTemplates.source(p::DocumenterCI) = p.documentation_yml
 PkgTemplates.destination(::DocumenterCI) = "./.github/workflows/documentation.yml"
 
-# No view needed for DocumentationCI
+# view definition
+view(::DocumenterCI, ::Template, ::AbstractString) = Dict(
+    "secrets.GITHUB_TOKEN" => "{{ secrets.GITHUB_TOKEN }}",
+    "secrets.DOCUMENTER_TOKEN" => "{{ secrets.DOCUMENTER_TOKEN }}"
+)
