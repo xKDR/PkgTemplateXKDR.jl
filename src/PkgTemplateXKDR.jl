@@ -4,6 +4,7 @@ export getPackageTemplate
 
 using PkgTemplates
 include("./DocumenterCI.jl")
+include("./CI.jl")
 
 """
 ```julia
@@ -60,15 +61,10 @@ function getPackageTemplate(; authorList::Vector{String}=["xKDR"], packagePath::
                 file=joinpath(assets_path, "readme", "README.md"),
                 destination="README.md"
             ),
-            GitHubActions(;                         # For adding CI
-                file=joinpath(assets_path, "ci", "ci.yml"),
-                destination="ci.yml",
-                linux=false,
-                x64=false,
-                coverage=false,
-                extra_versions=[]
+            CI(;
+                ci_yml=joinpath(assets_path, "ci", "ci.yml")
             ),
-            Documenter{GitHubActions}(;             # For adding Documentation
+            Documenter{}(;             # For adding Documentation
                 make_jl=joinpath(assets_path, "docs", "make.jl"),
                 index_md=joinpath(assets_path, "docs", "src", "index.md"),
                 assets=String[]

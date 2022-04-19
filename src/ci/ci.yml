@@ -1,14 +1,13 @@
 name: CI
-
 on: 
     push:
         branches:
             - main
+        tags: '*'
     pull_request:
         branches: 
             - main
     # can add tags if needed
-
 jobs: 
     test: 
         name: Test
