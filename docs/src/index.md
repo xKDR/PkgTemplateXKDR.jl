@@ -53,6 +53,18 @@ To set up building documentation using [Documenter.jl](https://juliadocs.github.
 
 After this, any commit or pull request to the `main` branch will build the fresh documentation in the `gh-pages` branch of your repository. You can configure [Documenter.jl](https://juliadocs.github.io/Documenter.jl/stable/) to further manage your documentation builds. 
 
+# Code coverage using [Codecov](https://about.codecov.io/)
+
+This package template also sets up code coverage, but certain steps will have to be done manually. If your first commit fails the code coverage CI, you can simply ignore it. 
+
+1. Ask one of the admins at xKDR to add your repository to [Codecov](https://about.codecov.io/), or if you are an admin you can do this by 
+   - visiting [codecov.io](https://about.codecov.io/) and logging in using your GitHub account.
+   - Authorizing [Codecov](https://about.codecov.io/) to access xKDR's repositories.
+   - Visit the settings page of the repository at https://app.codecov.io/gh/xKDR/XYZ.jl/settings; make sure that the repository is activated at [Codecov](https://about.codecov.io/) (which is true by default for public repositories).
+2. The link for the coverage badge is already included in README.md, but the generated token must be added. For this, visit https://app.codecov.io/gh/xKDR/XYZ.jl/settings/badge, and replace `<token>` by the value there in the url in the README.md file.
+
+After this, any new commits will send coverage report to [Codecov](https://about.codecov.io/), and the coverage percentage will be reflected in the badge you just added. 
+
 ```@autodocs
 Modules = [PkgTemplateXKDR]
 ```
