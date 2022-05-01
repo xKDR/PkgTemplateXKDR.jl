@@ -79,8 +79,8 @@ Registering new packages in Julia is straightforward; just follow the given step
    - xKDR.github.io/XYZ.jl/stable
    - xKDR.github.io/XYZ.jl/dev
    - xKDR.github.io/XYZ.jl/vA.B.C
-You can also clean the `gh-pages` branch by having only these folders and removing everything else.
-8. Create separate `stable` and `dev` badges in the README, which point to the `stable` and `dev` docs.
+  
+After all of this is done, you can also clean the `gh-pages` branch by having only these folders and removing everything else. Finally, create separate `stable` and `dev` badges in the README, which point to the `stable` and `dev` docs.
 
 # API Reference
 
