@@ -69,14 +69,19 @@ After this, any new commits will send coverage report to [Codecov](https://about
 
 Registering new packages in Julia is straightforward; just follow the given steps. 
 
-1. Visit https://juliahub.com/ui/index.html and log in using your Github account. 
+1. Visit [https://juliahub.com/ui/index.html](https://juliahub.com/ui/index.html) and log in using your Github account. 
 2. Click on the link which says "Register Packages".
-3. Before registering a package, you will have to follow a few [guidelines](https://github.com/JuliaRegistries/General/blob/master/README.md). One of them pertains to [Automatic merging](https://juliaregistries.github.io/RegistryCI.jl/stable/guidelines/). For `[compat]` section entries, you can use the [Compat Helper](https://github.com/JuliaRegistries/CompatHelper.jl).
+3. Before registering a package, you will have to follow a few [guidelines](https://github.com/JuliaRegistries/General/blob/master/README.md). One of them pertains to [Automatic merging](https://juliaregistries.github.io/RegistryCI.jl/stable/guidelines/). For `[compat]` section entries, you can use the [CompatHelper](https://github.com/JuliaRegistries/CompatHelper.jl).
 4. A form will show up, in which you have to add the URL of the package, the branch to publish (which should be `main`), and the release notes. Clicking on submit will initiate a PR into the Julia registry. 
 5. Fix any issues suggested by a registry maintainer or any issues preventing an automatic merge. Then repeat step 4.
 6. When your package is registered, [TagBot](https://github.com/JuliaRegistries/TagBot) will automatically create a new release and tag for you. The tag will be a named after the version you've registered. 
-7. Once this is done, [Documenter](https://juliadocs.github.io/Documenter.jl/stable/) will create separate folders in the `gh-pages` branch of your repository. There will be folders called `stable`, `dev` and other folders named after different versions of the package which you've registered. `stable` is the most recent version that has been registered, `dev` is the documentation for the most recent commit to the `main` branch, and other folders contain documentation for other registered versions of the package. 
+7. Once this is done, [Documenter](https://juliadocs.github.io/Documenter.jl/stable/) will create separate folders in the `gh-pages` branch of your repository. There will be folders called `stable`, `dev` and other folders named after different versions of the package which you've registered. `stable` is the most recent version that has been registered, `dev` is the documentation for the most recent commit to the `main` branch, and other folders contain documentation for other registered versions of the package. The following URLs will then work. 
+   - xKDR.github.io/XYZ.jl/stable
+   - xKDR.github.io/XYZ.jl/dev
+   - xKDR.github.io/XYZ.jl/vA.B.C
 8. Create separate `stable` and `dev` badges in the README, which point to the `stable` and `dev` branches.
+
+# API Reference
 
 ```@autodocs
 Modules = [PkgTemplateXKDR]
